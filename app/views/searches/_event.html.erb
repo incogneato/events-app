@@ -1,0 +1,17 @@
+<div class="col-sm-3">
+  <div class="card bg-light mb-3" style="max-width: 18rem; min-height: 12rem">
+    <div class="card-header">
+      <%= event.weekend_name %>
+    </div>
+    <div class="card-body">
+
+        <%= event.start_date_time.strftime('%b %e, %l:%M %p') %>
+
+      <p class="card-text small">
+        <i class="fa fa-map-pin"></i> <%= event.location.venue_name %>
+      </p>
+
+      <%= link_to 'Get your ticket!', event, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>

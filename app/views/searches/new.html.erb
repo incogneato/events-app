@@ -1,0 +1,24 @@
+<div id="hero">
+  <h3>Get tickets for your next race</h3>
+  <p class="lead">
+    Search by event type:
+  </p>
+  <%= form_for(@search, remote: true) do |f| %>
+    <%= f.collection_select(:event_brand_id, @event_brands, :id, :name, {include_blank: true, prompt: 'Select Event Type:'}) %>
+    <%= f.submit "Search", class: 'btn btn-primary btn-sm', id: 'search-button' %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <% end %>
+
+<hr class="my-4">
+
+<div id="events">
+  <p>
+    <small>Showing <%= @events.count %> events:</small>
+  </p>
+
+  <div class="row">
+    <% @events.each do |event| %>
+      <%= render 'event', event: event %>
+    <% end %>
+  </div>
+</div>

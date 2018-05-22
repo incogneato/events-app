@@ -1,0 +1,16 @@
+<div class="jumbotron">
+  <h3><%= @event.name %></h3>
+
+  <hr class="my-4">
+  <p class="lead">
+    <%= @event.weekend_name %>
+  </p>
+
+  <p class="lead">
+    Starting time: <%= @event.start_date_time.strftime('%b %e, %l:%M %p') %>
+  </p>
+
+  <i class="fa fa-map-pin"></i> <%= "#{@event.location.venue_name}, #{@event.location.pretty_location_name}" %>
+</div>
+<br>
+<%= link_to "&larr; home".html_safe, :root %>
